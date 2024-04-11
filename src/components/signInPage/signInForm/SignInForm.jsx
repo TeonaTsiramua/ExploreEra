@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../../context/AuthContext';
 import { useForm, Controller } from 'react-hook-form';
+
 import Button from '../../shared/button/Button';
 import { Error, Form, Input, Label, Section } from './style';
 

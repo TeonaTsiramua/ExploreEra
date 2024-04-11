@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+
 import { Checkbox, Div, Hr, Label, P, Section, SeeAll, Wrapper } from './style';
 import Button from '../../../shared/button/Button';
+
 import {
   facilities,
   propertyTypes,

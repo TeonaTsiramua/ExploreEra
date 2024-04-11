@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { useAuth } from '../../../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +14,6 @@ import {
   UploadDiv,
   UserImg,
 } from './style';
-import { useState } from 'react';
 
 const SignUpForm = () => {
   const [photoUrl, setPhotoUrl] = useState(null);

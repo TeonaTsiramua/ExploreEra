@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { stays } from '../../../../data/staysData';
 import { useNavigate } from 'react-router-dom';
+import { stays } from '../../../../data/staysData';
 
 import Button from '../../../shared/button/Button';
 import {
@@ -79,7 +79,7 @@ const Stays = ({ filterCriteria }) => {
                 </Div>
               </RatingDiv>
               <Button
-                primary
+                secondary1
                 content='Show details'
                 onClick={() => navigate(`/services/stays/${stay.id}`)}
               />

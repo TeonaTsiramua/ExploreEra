@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import Dropdown from '../../../shared/dropdownMenu/DropdownMenu';
 import { servicesDropdowns } from '../../../../data/data';
+
 import { Div, Input, Section, Wrapper } from './style';
+import Dropdown from '../../../shared/dropdownMenu/DropdownMenu';
 import Button from '../../../shared/button/Button';
 
 const Filter = ({ setFilterCriteria, setSearch }) => {

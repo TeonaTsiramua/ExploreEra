@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { airlines, airports, rangeValues } from '../../../../data/data';
+
 import {
   Checkbox,
   Div,
@@ -12,7 +14,6 @@ import {
   Section,
   Wrapper,
 } from './style';
-import { airlines, airports, rangeValues } from '../../../../data/data';
 import RangeSlider from '../rangeSlider/RangeSlider';
 import Button from '../../../shared/button/Button';
 
