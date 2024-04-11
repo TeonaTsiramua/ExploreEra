@@ -40,13 +40,31 @@ export const StyledButton = styled.button`
     props.$secondary &&
     css`
       font-size: 20px;
-      padding: 10px 10px;
+      padding: 10px;
       background-color: hsl(var(--primary-3));
       color: hsl(var(--clr-text-1));
 
       @media (min-width: 430px) {
         font-size: 20px;
-        padding: 10px 10px;
+        padding: 10px;
+      }
+
+      @media (min-width: 800px) {
+        font-size: clamp(16px, 1.5vw, 20px);
+        padding: 10px 5px;
+        border-radius: 10px;
+      }
+    `}
+
+    ${(props) =>
+    props.$secondary1 &&
+    css`
+      font-size: 18px;
+      padding: 8.5px;
+
+      @media (min-width: 430px) {
+        font-size: 20px;
+        padding: 10px;
       }
 
       @media (min-width: 800px) {
