@@ -1,5 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
+
+import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
+import { useShowFilter } from '../../../hooks/useShowFilter';
 
 import { Wrapper } from './style';
 
@@ -9,7 +12,6 @@ import Button from '../../../components/shared/button/Button';
 import Filter from '../../../components/servicesPage/flightsPage/filter/Filter';
 import Aside from '../../../components/servicesPage/flightsPage/aside/Aside';
 import Flights from '../../../components/servicesPage/flightsPage/flights/Flights';
-import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
 
 const FlightsPage = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -28,13 +30,7 @@ const FlightsPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (!isTablet) {
-      setShowFilter(true);
-    } else {
-      setShowFilter(false);
-    }
-  }, [setShowFilter, isTablet]);
+  useShowFilter(setShowFilter, isTablet);
 
   useBodyScrollLock(showFilter, isTablet);
 

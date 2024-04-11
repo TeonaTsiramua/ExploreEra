@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
 const Stays = lazy(() =>
@@ -7,11 +7,14 @@ const Stays = lazy(() =>
 import Search from '../../../components/servicesPage/staysPage/search/Search';
 import Button from '../../../components/shared/button/Button';
 import AsideStays from '../../../components/servicesPage/staysPage/asideStays/AsideStays';
-import { Wrapper } from './style';
 import Carousel from '../../../components/shared/carousel/Carousel';
-import { tours } from '../../../data/data';
 import Loader from '../../../components/shared/loader/Loader';
+
+import { Wrapper } from './style';
+
+import { tours } from '../../../data/data';
 import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
+import { useShowFilter } from '../../../hooks/useShowFilter';
 
 const StaysPage = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -28,13 +31,7 @@ const StaysPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (!isTablet) {
-      setShowFilter(true);
-    } else {
-      setShowFilter(false);
-    }
-  }, [setShowFilter, isTablet]);
+  useShowFilter(setShowFilter, isTablet);
 
   useBodyScrollLock(showFilter, isTablet);
 
