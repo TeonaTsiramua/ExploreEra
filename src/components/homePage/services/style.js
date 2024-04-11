@@ -10,6 +10,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column-reverse;
+  gap: 0.6rem;
 
   @media (min-width: 430px) {
     flex-direction: column;

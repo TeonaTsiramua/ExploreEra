@@ -112,7 +112,7 @@ body {
   font-size: 1rem;
   color: hsl(var(--clr-text-1));
   background-color: hsl(var(--background));
-  line-height: 1.5;
+  line-height: 1.1;
   
 }
 
