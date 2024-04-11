@@ -16,66 +16,61 @@ import AuthRoute from './routes/AuthRoute';
 import FlightsPage from './pages/servicesPage/flights/FlightsPage';
 import StayDetails from './pages/servicesPage/stays/staysDetails/StayDetails';
 
-const router = createBrowserRouter(
-  [
-    {
-      path: '/',
-      element: <Layout />,
-      children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-        {
-          path: 'sign-in',
-          element: (
-            <AuthRoute>
-              <SignIn />
-            </AuthRoute>
-          ),
-        },
-
-        {
-          path: 'sign-up',
-          element: (
-            <AuthRoute>
-              <SignUp />
-            </AuthRoute>
-          ),
-        },
-        {
-          path: 'services',
-          element: (
-            <PrivateRoute>
-              <ServicesPage />
-            </PrivateRoute>
-          ),
-          children: [
-            {
-              index: true,
-              element: <FlightsPage />,
-            },
-            {
-              path: 'stays',
-              element: <StaysPage />,
-            },
-            {
-              path: 'stays/:id',
-              element: <StayDetails />,
-            },
-          ],
-        },
-        {
-          path: '*',
-          element: <Navigate to='/' />,
-        },
-      ],
-    },
-  ],
+const router = createBrowserRouter([
   {
-    basename: '/ExplorEra',
-  }
-);
+    path: '/',
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: 'sign-in',
+        element: (
+          <AuthRoute>
+            <SignIn />
+          </AuthRoute>
+        ),
+      },
+
+      {
+        path: 'sign-up',
+        element: (
+          <AuthRoute>
+            <SignUp />
+          </AuthRoute>
+        ),
+      },
+      {
+        path: 'services',
+        element: (
+          <PrivateRoute>
+            <ServicesPage />
+          </PrivateRoute>
+        ),
+        children: [
+          {
+            index: true,
+            element: <FlightsPage />,
+          },
+          {
+            path: 'stays',
+            element: <StaysPage />,
+          },
+          {
+            path: 'stays/:id',
+            element: <StayDetails />,
+          },
+        ],
+      },
+      {
+        path: '*',
+        element: <Navigate to='/' />,
+      },
+    ],
+  },
+]);
 
 function App() {
   return (
