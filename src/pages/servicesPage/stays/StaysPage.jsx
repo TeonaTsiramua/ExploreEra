@@ -11,6 +11,7 @@ import { Wrapper } from './style';
 import Carousel from '../../../components/shared/carousel/Carousel';
 import { tours } from '../../../data/data';
 import Loader from '../../../components/shared/loader/Loader';
+import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
 
 const StaysPage = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -34,6 +35,8 @@ const StaysPage = () => {
       setShowFilter(false);
     }
   }, [setShowFilter, isTablet]);
+
+  useBodyScrollLock(showFilter, isTablet);
 
   return (
     <>

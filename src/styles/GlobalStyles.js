@@ -187,6 +187,8 @@ select {
   }
 }
 
-
+   .body-scroll-lock {
+       overflow: hidden;
+    }
 
 `;

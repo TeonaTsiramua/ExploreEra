@@ -9,6 +9,7 @@ import Button from '../../../components/shared/button/Button';
 import Filter from '../../../components/servicesPage/flightsPage/filter/Filter';
 import Aside from '../../../components/servicesPage/flightsPage/aside/Aside';
 import Flights from '../../../components/servicesPage/flightsPage/flights/Flights';
+import { useBodyScrollLock } from '../../../hooks/useBodyScrollLock';
 
 const FlightsPage = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -34,6 +35,8 @@ const FlightsPage = () => {
       setShowFilter(false);
     }
   }, [setShowFilter, isTablet]);
+
+  useBodyScrollLock(showFilter, isTablet);
 
   return (
     <>
