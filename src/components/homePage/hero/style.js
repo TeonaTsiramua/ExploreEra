@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeroContainer = styled.div`
-  background: url('/assets/hero.png') no-repeat center;
+  background: #135d66 url('/assets/hero.png') no-repeat center;
   background-size: cover;
   height: 100vh;
   display: flex;

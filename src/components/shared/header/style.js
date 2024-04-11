@@ -1,5 +1,16 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+const fadeIn = keyframes`
+   from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 export const HeaderContainer = styled.header`
   background-color: hsl(var(--secondary-2));
@@ -99,6 +110,8 @@ export const SigningContainer = styled.ul`
     border-top: 1px solid hsl(var(--primary-1));
     width: 100%;
   }
+
+  animation: ${fadeIn} 0.5s ease-in;
 `;
 
 // Mobile Menu
