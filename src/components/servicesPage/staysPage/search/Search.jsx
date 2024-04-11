@@ -24,7 +24,7 @@ const Search = ({ setSearch }) => {
 
   return (
     <Wrapper>
-      <Input type='text' placeholder='Choose cyty' />
+      <Input type='text' placeholder='Choose city' />
       <Input type='date' value={date} onChange={handleDateChange} />
       <Input type='text' placeholder='2 Adults' />
       <Button primary content='Search' onClick={handleSearch} />
