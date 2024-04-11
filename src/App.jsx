@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react';
 import { GlobalStyles } from './styles/GlobalStyles';
 import {
   RouterProvider,
@@ -5,7 +6,7 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import Home from './pages/home/Home';
+const Home = lazy(() => import('./pages/home/Home'));
 import Layout from './components/Layout';
 import SignIn from './pages/signIn/SignIn';
 import SignUp from './pages/signUp/SignUp';
@@ -15,6 +16,7 @@ import StaysPage from './pages/servicesPage/stays/StaysPage';
 import AuthRoute from './routes/AuthRoute';
 import FlightsPage from './pages/servicesPage/flights/FlightsPage';
 import StayDetails from './pages/servicesPage/stays/staysDetails/StayDetails';
+import Loader from './components/shared/loader/Loader';
 
 const router = createBrowserRouter([
   {
@@ -23,7 +25,11 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Home />
+          </Suspense>
+        ),
       },
       {
         path: 'sign-in',
@@ -60,7 +66,11 @@ const router = createBrowserRouter([
           },
           {
             path: 'stays/:id',
-            element: <StayDetails />,
+            element: (
+              <Suspense fallback={<Loader />}>
+                <StayDetails />
+              </Suspense>
+            ),
           },
         ],
       },

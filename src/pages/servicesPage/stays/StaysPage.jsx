@@ -1,13 +1,16 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 
+const Stays = lazy(() =>
+  import('../../../components/servicesPage/staysPage/stays/Stays')
+);
 import Search from '../../../components/servicesPage/staysPage/search/Search';
 import Button from '../../../components/shared/button/Button';
 import AsideStays from '../../../components/servicesPage/staysPage/asideStays/AsideStays';
 import { Wrapper } from './style';
-import Stays from '../../../components/servicesPage/staysPage/stays/Stays';
 import Carousel from '../../../components/shared/carousel/Carousel';
 import { tours } from '../../../data/data';
+import Loader from '../../../components/shared/loader/Loader';
 
 const StaysPage = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -52,7 +55,9 @@ const StaysPage = () => {
               toggleShowFilter={toggleShowFilter}
             />
           )}
-          <Stays filterCriteria={filterCriteria} />
+          <Suspense fallback={<Loader />}>
+            <Stays filterCriteria={filterCriteria} />
+          </Suspense>
         </Wrapper>
       ) : (
         <Carousel title='Browse by property type' photos={tours} />
