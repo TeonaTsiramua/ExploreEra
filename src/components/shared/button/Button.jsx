@@ -1,10 +1,18 @@
 import { StyledButton } from './style';
 
-const Button = ({ content, primary, secondary, disabled, onClick }) => {
+const Button = ({
+  content,
+  primary,
+  secondary,
+  secondary1,
+  disabled,
+  onClick,
+}) => {
   return (
     <StyledButton
-      $secondary={secondary}
       $primary={primary}
+      $secondary={secondary}
+      $secondary1={secondary1}
       onClick={onClick}
       disabled={disabled}
     >
