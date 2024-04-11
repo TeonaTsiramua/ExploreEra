@@ -46,9 +46,9 @@ const SignUpForm = () => {
   const onSubmit = (data) => {
     // Add photo URL to the form data
     data.photoUrl = photoUrl;
+    auth.setSignUpData(data);
     // Save the form data to local storage
     localStorage.setItem('signUpData', JSON.stringify(data));
-
     navigate('/sign-in');
   };
   return (
